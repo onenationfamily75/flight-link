@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*?*
+
+Sitemap: https://www.flightlink.co.tz/sitemap.xml

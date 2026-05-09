@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flightlink | Domestic Scheduled & Affordable Flights in Tanzania & Kenya</title>
+<meta name="description" content="Book domestic flights and affordable flights to Tanzania and Kenya with Flightlink.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #E8000D;
+  --red-dark: #B8000A;
+  --red-light: #FF2030;
+  --dark: #0D0D0D;
+  --dark2: #161616;
+  --dark3: #1E1E1E;
+  --white: #FFFFFF;
+  --off-white: #F5F5F0;
+  --grey: #8A8A8A;
+  --light-grey: #E5E5E5;
+  --green-wa: #25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.08);height:70px;display:flex;align-items:center;padding:0 5%;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-icon{width:38px;height:38px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-weight:800;font-family:'Syne',sans-serif;}
+.nav-logo-text{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;color:var(--dark);letter-spacing:-0.02em;}
+.nav-logo-text span{color:var(--red);}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
+.nav-links a{color:var(--dark);text-decoration:none;font-size:0.85rem;font-weight:500;padding:8px 14px;border-radius:6px;transition:all 0.2s;}
+.nav-links a:hover{background:rgba(232,0,13,0.06);color:var(--red);}
+.btn-book-nav{background:var(--red)!important;color:#fff!important;font-weight:700!important;border-radius:8px!important;padding:9px 20px!important;}
+.btn-book-nav:hover{background:var(--red-dark)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.hamburger span{width:22px;height:2px;background:var(--dark);border-radius:2px;transition:0.3s;}
+.mobile-nav{display:none;position:fixed;inset:0;z-index:999;background:var(--white);padding:90px 5% 40px;flex-direction:column;gap:4px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{color:var(--dark);text-decoration:none;font-size:1rem;font-weight:500;padding:14px 0;border-bottom:1px solid var(--light-grey);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:#0D0D0D;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:120px 5% 60px;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=85') center/cover no-repeat;opacity:0.25;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,13,13,0.9) 0%,rgba(232,0,13,0.15) 100%);}
+.hero-content{position:relative;z-index:2;max-width:700px;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(232,0,13,0.15);border:1px solid rgba(232,0,13,0.3);color:var(--red-light);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:7px 16px;border-radius:20px;margin-bottom:28px;}
+.hero-tag::before{content:'✈';font-size:0.9rem;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;line-height:1.0;color:#fff;margin-bottom:24px;letter-spacing:-0.03em;}
+.hero h1 span{color:var(--red);}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,0.7);max-width:500px;line-height:1.8;margin-bottom:40px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--red);color:#fff;border:none;border-radius:10px;padding:14px 32px;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.25s;font-family:'DM Sans',sans-serif;letter-spacing:0.01em;}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,0,13,0.35);}
+.btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4);border-radius:10px;padding:14px 32px;font-size:0.95rem;font-weight:500;cursor:pointer;transition:all 0.25s;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block;}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+
+/* ── SEARCH STRIP ── */
+.search-strip{background:var(--white);border-bottom:1px solid var(--light-grey);padding:30px 5%;box-shadow:0 4px 24px rgba(0,0,0,0.06);}
+.search-inner{max-width:1100px;margin:0 auto;}
+.search-tabs{display:flex;gap:0;margin-bottom:20px;border-bottom:2px solid var(--light-grey);}
+.search-tab{padding:10px 20px;font-size:0.85rem;font-weight:600;color:var(--grey);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s;}
+.search-tab.active{color:var(--red);border-bottom-color:var(--red);}
+.search-fields{display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:12px;align-items:end;}
+.sf-group label{display:block;font-size:0.72rem;font-weight:700;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;}
+.sf-group input,.sf-group select{width:100%;border:1.5px solid var(--light-grey);border-radius:8px;padding:11px 14px;font-size:0.9rem;color:var(--dark);font-family:'DM Sans',sans-serif;transition:border-color 0.2s;background:#fff;}
+.sf-group input:focus,.sf-group select:focus{outline:none;border-color:var(--red);}
+
+/* ── SECTIONS ── */
+section{padding:90px 5%;}
+.section-tag{font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;display:block;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;margin-bottom:14px;letter-spacing:-0.02em;}
+.section-sub{color:var(--grey);font-size:0.95rem;line-height:1.8;max-width:540px;}
+.section-header{margin-bottom:52px;}
+.section-header.center{text-align:center;}
+.section-header.center .section-sub{margin:0 auto;}
+
+/* ── OFFERS ── */
+.offers{background:var(--off-white);}
+.offers-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.offer-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06);transition:all 0.35s;cursor:pointer;}
+.offer-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.12);}
+.offer-card-img{width:100%;height:200px;object-fit:cover;}
+.offer-card-body{padding:20px;}
+.offer-price{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--red);margin-bottom:6px;}
+.offer-price span{font-size:0.75rem;font-weight:500;color:var(--grey);font-family:'DM Sans',sans-serif;}
+.offer-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:6px;}
+.offer-card p{font-size:0.82rem;color:var(--grey);line-height:1.6;}
+.offer-btn{margin-top:14px;background:var(--red);color:#fff;border:none;border-radius:7px;padding:9px 18px;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;width:100%;}
+.offer-btn:hover{background:var(--red-dark);}
+
+/* ── ROUTES ── */
+.routes{background:#fff;}
+.routes-inner{max-width:1100px;margin:0 auto;}
+.routes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.route-card{border:1.5px solid var(--light-grey);border-radius:14px;overflow:hidden;transition:all 0.3s;cursor:pointer;}
+.route-card:hover{border-color:var(--red);box-shadow:0 8px 24px rgba(232,0,13,0.08);transform:translateY(-4px);}
+.route-card-img{width:100%;height:160px;object-fit:cover;display:block;}
+.route-card-body{padding:18px;}
+.route-airports{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.airport-code{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--dark);}
+.route-arrow{color:var(--red);font-size:1.1rem;}
+.route-card h4{font-weight:600;margin-bottom:6px;font-size:0.92rem;}
+.route-card p{font-size:0.8rem;color:var(--grey);line-height:1.6;margin-bottom:14px;}
+.route-meta{display:flex;gap:12px;font-size:0.75rem;color:var(--grey);border-top:1px solid var(--light-grey);padding-top:12px;}
+.btn-route{margin-top:12px;width:100%;background:transparent;color:var(--red);border:1.5px solid var(--red);border-radius:7px;padding:9px;font-size:0.83rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-route:hover{background:var(--red);color:#fff;}
+
+/* ── WHY US ── */
+.why{background:var(--dark);}
+.why-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;}
+.why-card{padding:32px;border:1px solid rgba(255,255,255,0.08);border-radius:16px;transition:all 0.3s;}
+.why-card:hover{border-color:rgba(232,0,13,0.3);background:rgba(232,0,13,0.03);}
+.why-icon{font-size:2.2rem;margin-bottom:18px;}
+.why-card h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:10px;}
+.why-card p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.8;}
+
+/* ── TIMETABLE ── */
+.timetable{background:var(--off-white);}
+.tt-inner{max-width:1000px;margin:0 auto;}
+.tt-table{width:100%;border-collapse:collapse;font-size:0.88rem;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06);}
+.tt-table thead tr{background:var(--red);}
+.tt-table th{padding:14px 16px;text-align:left;font-weight:700;color:#fff;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;}
+.tt-table tbody tr{border-bottom:1px solid var(--light-grey);transition:background 0.2s;}
+.tt-table tbody tr:hover{background:rgba(232,0,13,0.03);}
+.tt-table td{padding:14px 16px;color:var(--dark);}
+.tt-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:700;background:rgba(37,211,102,0.12);color:#16a34a;}
+
+/* ── APP BANNER ── */
+.app-banner{background:var(--red);padding:80px 5%;}
+.app-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.app-content h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:#fff;margin-bottom:16px;letter-spacing:-0.02em;}
+.app-content p{color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:28px;}
+.app-features{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+.app-feature{display:flex;align-items:center;gap:10px;font-size:0.88rem;color:rgba(255,255,255,0.9);}
+.app-feature::before{content:'✓';background:rgba(255,255,255,0.2);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;flex-shrink:0;}
+.app-img{border-radius:20px;overflow:hidden;}
+.app-img img{width:100%;display:block;border-radius:20px;}
+
+/* ── CONTACT ── */
+.contact{background:#fff;}
+.contact-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:60px;}
+.contact-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px;}
+.contact-icon{width:42px;height:42px;flex-shrink:0;background:rgba(232,0,13,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.contact-item h5{font-size:0.8rem;color:var(--red);font-weight:700;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.06em;}
+.contact-item p{font-size:0.88rem;color:var(--grey);}
+.contact-form{background:var(--off-white);border-radius:16px;padding:36px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:0.75rem;font-weight:700;color:var(--grey);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:7px;}
+.form-group input,.form-group textarea,.form-group select{width:100%;border:1.5px solid var(--light-grey);border-radius:8px;padding:11px 14px;font-size:0.9rem;color:var(--dark);font-family:'DM Sans',sans-serif;transition:border-color 0.2s;background:#fff;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--red);}
+.form-group textarea{resize:vertical;min-height:100px;}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);padding:60px 5% 30px;}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-0.02em;}
+.footer-logo span{color:var(--red);}
+.footer-desc{font-size:0.83rem;color:rgba(255,255,255,0.45);line-height:1.8;max-width:260px;}
+.footer-col h5{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:9px;}
+.footer-col ul li a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.83rem;transition:color 0.2s;}
+.footer-col ul li a:hover{color:#fff;}
+.footer-bottom{max-width:1100px;margin:28px auto 0;display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;color:rgba(255,255,255,0.3);}
+.footer-bottom a{color:var(--red);text-decoration:none;}
+
+/* ── WA FLOAT ── */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:900;width:54px;height:54px;background:var(--green-wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all 0.2s;text-decoration:none;}
+.wa-float:hover{transform:scale(1.1);}
+
+/* ══════════════════════════════════════
+   BOOKING MODAL
+══════════════════════════════════════ */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:20px;overflow:hidden;width:100%;max-width:780px;max-height:94vh;overflow-y:auto;animation:modalIn 0.35s cubic-bezier(.22,.9,.36,1);}
+@keyframes modalIn{from{opacity:0;transform:translateY(30px) scale(0.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+.modal-header{background:var(--red);padding:24px 28px 20px;display:flex;justify-content:space-between;align-items:flex-start;}
+.modal-header h2{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:3px;letter-spacing:-0.01em;}
+.modal-header p{font-size:0.8rem;color:rgba(255,255,255,0.75);}
+.modal-close{width:32px;height:32px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.2s;}
+.modal-close:hover{background:rgba(255,255,255,0.25);}
+
+/* Steps */
+.modal-steps{display:flex;background:#f8f8f8;border-bottom:1px solid var(--light-grey);}
+.modal-step{flex:1;padding:14px 6px 12px;text-align:center;font-size:0.73rem;font-weight:700;color:var(--grey);border-bottom:3px solid transparent;transition:all 0.25s;line-height:1.3;}
+.modal-step .snum{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--light-grey);font-size:0.72rem;font-weight:800;margin-bottom:4px;transition:all 0.25s;}
+.modal-step.active{color:var(--red);border-bottom-color:var(--red);}
+.modal-step.active .snum{background:var(--red);color:#fff;}
+.modal-step.done{color:#16a34a;border-bottom-color:#16a34a;}
+.modal-step.done .snum{background:#16a34a;color:#fff;}
+
+.modal-body{padding:24px 28px;}
+.step-panel{display:none;}
+.step-panel.active{display:block;animation:fadeUp 0.3s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.modal-field{margin-bottom:16px;}
+.modal-field label{display:block;font-size:0.72rem;font-weight:700;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;}
+.modal-field input,.modal-field select,.modal-field textarea{width:100%;border:1.5px solid var(--light-grey);border-radius:8px;padding:10px 13px;color:var(--dark);font-size:0.88rem;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;background:#fff;}
+.modal-field input:focus,.modal-field select:focus,.modal-field textarea:focus{outline:none;border-color:var(--red);}
+
+/* Seat Map */
+.seat-map-wrap{background:#f8f8f8;border:1.5px solid var(--light-grey);border-radius:14px;padding:20px;margin-bottom:16px;}
+.seat-map-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.seat-map-header h4{font-size:0.85rem;font-weight:700;font-family:'Syne',sans-serif;}
+.seat-legend{display:flex;gap:14px;font-size:0.72rem;color:var(--grey);}
+.seat-legend span{display:flex;align-items:center;gap:5px;}
+.leg-box{width:14px;height:14px;border-radius:3px;}
+.leg-avail{background:#fff;border:1.5px solid #ccc;}
+.leg-sel{background:var(--red);}
+.leg-taken{background:#e5e5e5;}
+.plane-body{background:#fff;border:1.5px solid var(--light-grey);border-radius:40px;padding:16px 20px;display:inline-block;margin:0 auto;}
+.plane-nose-wrap{text-align:center;margin-bottom:8px;}
+.plane-nose{display:inline-block;background:var(--red);color:#fff;font-size:0.6rem;font-weight:800;letter-spacing:0.1em;padding:4px 16px;border-radius:20px 20px 0 0;}
+.seat-cabin{display:flex;flex-direction:column;gap:7px;align-items:center;}
+.seat-row{display:flex;align-items:center;gap:7px;}
+.seat-row-num{width:18px;font-size:0.65rem;color:var(--grey);text-align:right;flex-shrink:0;}
+.seat-aisle{width:22px;flex-shrink:0;text-align:center;font-size:0.6rem;color:var(--grey);}
+.seat{width:36px;height:32px;border-radius:7px 7px 4px 4px;border:1.5px solid #ccc;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:#666;transition:all 0.18s;flex-shrink:0;}
+.seat:hover:not(.taken):not(.selected){background:rgba(232,0,13,0.08);border-color:var(--red);color:var(--red);}
+.seat.selected{background:var(--red);border-color:var(--red-dark);color:#fff;box-shadow:0 3px 10px rgba(232,0,13,0.3);}
+.seat.taken{background:#e5e5e5;border-color:#ddd;color:#bbb;cursor:not-allowed;}
+.seat-info{text-align:center;font-size:0.8rem;color:var(--grey);margin-top:12px;}
+.seat-info strong{color:var(--red);}
+
+/* Passenger cards */
+.pax-cards{display:flex;flex-direction:column;gap:14px;}
+.pax-card{border:1.5px solid var(--light-grey);border-radius:12px;padding:18px;transition:border-color 0.2s;}
+.pax-card:focus-within{border-color:rgba(232,0,13,0.3);}
+.pax-card-title{font-size:0.78rem;font-weight:700;color:var(--red);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.pax-seat-badge{background:var(--red);color:#fff;font-size:0.68rem;padding:2px 8px;border-radius:10px;font-weight:800;}
+
+/* Payment */
+.pay-methods{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.pay-method{border:2px solid var(--light-grey);border-radius:12px;padding:16px;cursor:pointer;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
+.pay-method:hover{border-color:rgba(232,0,13,0.3);}
+.pay-method.selected{border-color:var(--red);background:rgba(232,0,13,0.04);}
+.pay-method .pay-icon{font-size:1.8rem;}
+.pay-method .pay-name{font-size:0.8rem;font-weight:700;}
+.pay-method .pay-desc{font-size:0.7rem;color:var(--grey);line-height:1.4;}
+.pay-method .pay-num{font-size:0.78rem;color:var(--red);font-weight:700;}
+.mpesa-box{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:16px;margin-bottom:16px;display:none;}
+.mpesa-box.show{display:block;}
+.mpesa-box h5{color:#16a34a;font-size:0.8rem;font-weight:700;margin-bottom:10px;}
+.mpesa-step{font-size:0.8rem;color:#1a1a1a;margin-bottom:6px;display:flex;gap:8px;}
+.mpesa-step .n{color:#16a34a;font-weight:800;flex-shrink:0;}
+.total-box{background:#f8f8f8;border:1.5px solid var(--light-grey);border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;}
+.total-box span{font-size:0.85rem;color:var(--grey);}
+.total-box strong{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--red);}
+
+/* Receipt */
+.receipt-wrap{background:#fff;border:1.5px solid var(--light-grey);border-radius:14px;overflow:hidden;margin-bottom:20px;}
+.receipt-header{background:var(--dark);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;}
+.receipt-logo{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;}
+.receipt-logo span{color:var(--red);}
+.receipt-bref .bnum{font-size:1rem;font-weight:800;color:var(--red);font-family:'Syne',sans-serif;}
+.receipt-bref .blbl{font-size:0.68rem;color:rgba(255,255,255,0.5);text-align:right;}
+.receipt-route{background:var(--red);padding:12px 24px;display:flex;align-items:center;gap:10px;font-weight:700;color:#fff;font-size:0.9rem;}
+.receipt-body{padding:20px 24px;}
+.receipt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+.rf-label{font-size:0.65rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;}
+.rf-val{font-size:0.86rem;font-weight:600;color:var(--dark);}
+.receipt-pax h5{font-size:0.68rem;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:8px;}
+.receipt-pax-item{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#f8f8f8;border-radius:7px;margin-bottom:6px;font-size:0.82rem;}
+.pi-name{font-weight:600;}
+.pi-seat{background:var(--red);color:#fff;font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:10px;}
+.receipt-pay-box{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:14px 16px;margin:16px 0;}
+.receipt-pay-box h5{font-size:0.68rem;font-weight:700;color:#16a34a;text-transform:uppercase;margin-bottom:8px;}
+.receipt-pay-row{display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:4px;}
+.receipt-pay-row.total{font-weight:800;border-top:1px solid #86efac;padding-top:8px;margin-top:4px;}
+.receipt-footer-bar{border-top:1px solid var(--light-grey);padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-size:0.72rem;color:#888;}
+.rf-status{background:#dcfce7;color:#16a34a;font-weight:700;font-size:0.68rem;padding:4px 12px;border-radius:20px;}
+.receipt-actions{display:flex;gap:10px;justify-content:center;margin-bottom:4px;}
+
+/* Success banner */
+.success-banner{background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;gap:12px;font-size:0.88rem;}
+.success-banner strong{color:#16a34a;}
+
+/* Modal footer */
+.modal-footer{display:flex;gap:10px;justify-content:flex-end;padding:16px 28px 22px;border-top:1px solid var(--light-grey);flex-wrap:wrap;}
+.btn-back{background:transparent;color:var(--grey);border:1.5px solid var(--light-grey);border-radius:8px;padding:11px 22px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-back:hover{border-color:#999;color:var(--dark);}
+.btn-next{background:var(--red);color:#fff;border:none;border-radius:8px;padding:11px 26px;font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-next:hover{background:var(--red-dark);}
+.btn-wa{background:var(--green-wa);color:#fff;border:none;border-radius:8px;padding:11px 22px;font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:7px;transition:all 0.2s;}
+.btn-wa:hover{background:#1fb85a;}
+.btn-print{background:#f8f8f8;color:var(--dark);border:1.5px solid var(--light-grey);border-radius:8px;padding:11px 20px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-print:hover{background:var(--light-grey);}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#f8f8f8;}
+::-webkit-scrollbar-thumb{background:rgba(232,0,13,0.25);border-radius:3px;}
+
+/* MOBILE */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .search-fields{grid-template-columns:1fr 1fr;}
+  .offers-grid{grid-template-columns:1fr 1fr;}
+  .routes-grid{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .app-inner{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .modal-row{grid-template-columns:1fr;}
+  .modal-body{padding:18px 20px;}
+  .modal-header{padding:20px;}
+  .modal-footer{padding:14px 20px 20px;}
+}
+@media(max-width:600px){
+  .offers-grid{grid-template-columns:1fr;}
+  .search-fields{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .pay-methods{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">FL</div>
+    <span class="nav-logo-text">Flight<span>link</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Who We Are</a></li>
+    <li><a href="#routes">Routes</a></li>
+    <li><a href="#timetable">Timetable</a></li>
+    <li><a href="#offers">Offers</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="btn-book-nav" onclick="openModal();return false;">Book Flight</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeNav()">Who We Are</a>
+  <a href="#routes" onclick="closeNav()">Routes</a>
+  <a href="#timetable" onclick="closeNav()">Timetable</a>
+  <a href="#offers" onclick="closeNav()">Offers</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+  <a href="#" onclick="openModal();closeNav();return false;" style="color:var(--red);font-weight:700;">✈ Book a Flight</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Tanzania & Kenya's Domestic Airline</span>
+    <h1>Fly <span>Smarter.</span><br>Fly Further.</h1>
+    <p>Scheduled domestic flights connecting Dar es Salaam, Zanzibar, Arusha, Mwanza, Pemba and beyond — affordable, safe and on time.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="openModal()">Book Your Flight</button>
+      <a href="#offers" class="btn-outline-white">View Offers</a>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH STRIP -->
+<div class="search-strip">
+  <div class="search-inner">
+    <div class="search-tabs">
+      <div class="search-tab active">One Way</div>
+      <div class="search-tab">Round Trip</div>
+      <div class="search-tab">Charter</div>
+    </div>
+    <div class="search-fields">
+      <div class="sf-group">
+        <label>From</label>
+        <select id="qs-from">
+          <option>Dar es Salaam (DAR)</option>
+          <option>Zanzibar (ZNZ)</option>
+          <option>Arusha (ARK)</option>
+          <option>Mwanza (MWZ)</option>
+          <option>Pemba (PMA)</option>
+          <option>Nairobi (NBO)</option>
+        </select>
+      </div>
+      <div class="sf-group">
+        <label>To</label>
+        <select id="qs-to">
+          <option value="">— Select Destination —</option>
+          <option>Zanzibar (ZNZ)</option>
+          <option>Dar es Salaam (DAR)</option>
+          <option>Arusha (ARK)</option>
+          <option>Mwanza (MWZ)</option>
+          <option>Pemba (PMA)</option>
+          <option>Nairobi (NBO)</option>
+          <option>Kilimanjaro (JRO)</option>
+        </select>
+      </div>
+      <div class="sf-group">
+        <label>Depart Date</label>
+        <input type="date" id="qs-date">
+      </div>
+      <div class="sf-group">
+        <label>Passengers</label>
+        <select id="qs-pax">
+          <option>1 Passenger</option>
+          <option>2 Passengers</option>
+          <option>3 Passengers</option>
+          <option>4 Passengers</option>
+          <option>5+ Passengers</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="openModalFromStrip()">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- OFFERS -->
+<section class="offers" id="offers">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-header center fade-up">
+      <span class="section-tag">Special Deals</span>
+      <h2 class="section-title">Unlock Amazing Travel Offers</h2>
+      <p class="section-sub">Book more flights, unlock exclusive offers, and enjoy greater savings on your journeys!</p>
+    </div>
+    <div class="offers-grid">
+      <div class="offer-card fade-up">
+        <img class="offer-card-img" src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80" alt="Dar es Salaam to Zanzibar">
+        <div class="offer-card-body">
+          <div class="offer-price">TZS 65,000 <span>/ person</span></div>
+          <h3>Dar es Salaam → Zanzibar</h3>
+          <p>Escape for the weekend! Enjoy our special flights and make the most of your island getaway.</p>
+          <button class="offer-btn" onclick="openModalDest('Zanzibar')">Book Now</button>
+        </div>
+      </div>
+      <div class="offer-card fade-up" style="transition-delay:0.1s">
+        <img class="offer-card-img" src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80" alt="Zanzibar to Arusha">
+        <div class="offer-card-body">
+          <div class="offer-price">TZS 125,000 <span>/ person</span></div>
+          <h3>Zanzibar → Arusha</h3>
+          <p>Fly from Zanzibar to Arusha with ease and comfort — your journey starts the moment you board.</p>
+          <button class="offer-btn" onclick="openModalDest('Arusha')">Book Now</button>
+        </div>
+      </div>
+      <div class="offer-card fade-up" style="transition-delay:0.2s">
+        <img class="offer-card-img" src="https://images.unsplash.com/photo-1504714146340-959ca07e1f38?w=600&q=80" alt="Mwanza">
+        <div class="offer-card-body">
+          <div class="offer-price">TZS 175,000 <span>/ person</span></div>
+          <h3>Mwanza → Dar es Salaam / Arusha</h3>
+          <p>Fast, reliable flights that keep your journey effortless and on schedule.</p>
+          <button class="offer-btn" onclick="openModalDest('Dar es Salaam')">Book Now</button>
+        </div>
+      </div>
+      <div class="offer-card fade-up">
+        <img class="offer-card-img" src="https://images.unsplash.com/photo-1565367145988-15f32b2bcfc8?w=600&q=80" alt="Pemba">
+        <div class="offer-card-body">
+          <div class="offer-price">TZS 125,000 <span>/ person</span></div>
+          <h3>Pemba → Zanzibar / Dar es Salaam</h3>
+          <p>Quick, comfortable flights that keep your island adventures moving smoothly.</p>
+          <button class="offer-btn" onclick="openModalDest('Zanzibar')">Book Now</button>
+        </div>
+      </div>
+      <div class="offer-card fade-up" style="transition-delay:0.1s">
+        <img class="offer-card-img" src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&q=80" alt="Arusha to Zanzibar">
+        <div class="offer-card-body">
+          <div class="offer-price">TZS 300,000 <span>/ person</span></div>
+          <h3>Arusha → Zanzibar</h3>
+          <p>Take off from Arusha and land in Zanzibar, where sun, scent and sea awaits.</p>
+          <button class="offer-btn" onclick="openModalDest('Zanzibar')">Book Now</button>
+        </div>
+      </div>
+      <div class="offer-card fade-up" style="transition-delay:0.2s">
+        <img class="offer-card-img" src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=600&q=80" alt="Nairobi">
+        <div class="offer-card-body">
+          <div class="offer-price">TZS 450,000 <span>/ person</span></div>
+          <h3>Dar es Salaam → Nairobi</h3>
+          <p>Connect to Kenya with our reliable cross-border service from Dar es Salaam.</p>
+          <button class="offer-btn" onclick="openModalDest('Nairobi')">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTES -->
+<section class="routes" id="routes">
+  <div class="routes-inner">
+    <div class="section-header fade-up">
+      <span class="section-tag">Route Network</span>
+      <h2 class="section-title">Explore Our Expanding Routes</h2>
+      <p class="section-sub">Seamless travel across our growing network, connecting key destinations in Tanzania and Kenya.</p>
+    </div>
+    <div class="routes-grid">
+      <div class="route-card fade-up">
+        <img class="route-card-img" src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80" alt="Zanzibar">
+        <div class="route-card-body">
+          <div class="route-airports"><span class="airport-code">DAR</span><span class="route-arrow">→</span><span class="airport-code">ZNZ</span></div>
+          <h4>Dar es Salaam → Zanzibar</h4>
+          <p>Multiple daily flights connecting the mainland to Zanzibar island. Quick 20-minute hop over the Indian Ocean.</p>
+          <div class="route-meta"><span>⏱ 20 min</span><span>📅 Daily</span><span>👥 Up to 72 pax</span></div>
+          <button class="btn-route" onclick="openModalDest('Zanzibar')">Book This Route</button>
+        </div>
+      </div>
+      <div class="route-card fade-up" style="transition-delay:0.1s">
+        <img class="route-card-img" src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80" alt="Arusha">
+        <div class="route-card-body">
+          <div class="route-airports"><span class="airport-code">ZNZ</span><span class="route-arrow">→</span><span class="airport-code">ARK</span></div>
+          <h4>Zanzibar → Arusha</h4>
+          <p>Direct service from the spice island to the safari gateway city near Mount Kilimanjaro.</p>
+          <div class="route-meta"><span>⏱ 1h 10min</span><span>📅 Daily</span><span>👥 Up to 72 pax</span></div>
+          <button class="btn-route" onclick="openModalDest('Arusha')">Book This Route</button>
+        </div>
+      </div>
+      <div class="route-card fade-up" style="transition-delay:0.2s">
+        <img class="route-card-img" src="https://images.unsplash.com/photo-1504714146340-959ca07e1f38?w=600&q=80" alt="Mwanza Lake Victoria">
+        <div class="route-card-body">
+          <div class="route-airports"><span class="airport-code">MWZ</span><span class="route-arrow">→</span><span class="airport-code">DAR</span></div>
+          <h4>Mwanza → Dar es Salaam</h4>
+          <p>Connect the Lake Victoria region directly to the commercial capital with daily scheduled service.</p>
+          <div class="route-meta"><span>⏱ 1h 30min</span><span>📅 Daily</span><span>👥 Up to 72 pax</span></div>
+          <button class="btn-route" onclick="openModalDest('Dar es Salaam')">Book This Route</button>
+        </div>
+      </div>
+      <div class="route-card fade-up">
+        <img class="route-card-img" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Pemba Island">
+        <div class="route-card-body">
+          <div class="route-airports"><span class="airport-code">PMA</span><span class="route-arrow">→</span><span class="airport-code">ZNZ</span></div>
+          <h4>Pemba → Zanzibar</h4>
+          <p>Island hopping made easy — quick and comfortable flights between Tanzania's beautiful islands.</p>
+          <div class="route-meta"><span>⏱ 30 min</span><span>📅 Daily</span><span>👥 Up to 72 pax</span></div>
+          <button class="btn-route" onclick="openModalDest('Zanzibar')">Book This Route</button>
+        </div>
+      </div>
+      <div class="route-card fade-up" style="transition-delay:0.1s">
+        <img class="route-card-img" src="https://images.unsplash.com/photo-1609766857241-8e9ca53a3bd5?w=600&q=80" alt="Kilimanjaro">
+        <div class="route-card-body">
+          <div class="route-airports"><span class="airport-code">ARK</span><span class="route-arrow">→</span><span class="airport-code">JRO</span></div>
+          <h4>Arusha → Kilimanjaro</h4>
+          <p>Gateway to Africa's highest peak. Short hop connecting safari city to international airport.</p>
+          <div class="route-meta"><span>⏱ 25 min</span><span>📅 Daily</span><span>👥 Up to 72 pax</span></div>
+          <button class="btn-route" onclick="openModalDest('Kilimanjaro')">Book This Route</button>
+        </div>
+      </div>
+      <div class="route-card fade-up" style="transition-delay:0.2s">
+        <img class="route-card-img" src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=600&q=80" alt="Nairobi Kenya">
+        <div class="route-card-body">
+          <div class="route-airports"><span class="airport-code">DAR</span><span class="route-arrow">→</span><span class="airport-code">NBO</span></div>
+          <h4>Dar es Salaam → Nairobi</h4>
+          <p>Cross-border service to Kenya's capital. Business and leisure travel made seamless.</p>
+          <div class="route-meta"><span>⏱ 1h 45min</span><span>📅 Daily</span><span>👥 Up to 72 pax</span></div>
+          <button class="btn-route" onclick="openModalDest('Nairobi')">Book This Route</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="about">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-header center fade-up">
+      <span class="section-tag" style="color:rgba(232,0,13,0.9)">Why Flightlink</span>
+      <h2 class="section-title" style="color:#fff">Reliability. Safety. Connectivity.</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.55);margin:0 auto;">We are committed to providing seamless, safe, and punctual domestic flights across Tanzania and Kenya.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-icon">🛡️</div>
+        <h3>Safety First</h3>
+        <p>Rigorous maintenance schedules, internationally certified pilots and adherence to TCAA & KCAA aviation safety standards on every single flight.</p>
+      </div>
+      <div class="why-card fade-up" style="transition-delay:0.1s">
+        <div class="why-icon">⏱️</div>
+        <h3>Reliability & Punctuality</h3>
+        <p>We are committed to on-time operations, ensuring smooth and timely travel. Passengers can trust Flightlink for dependable, hassle-free journeys.</p>
+      </div>
+      <div class="why-card fade-up" style="transition-delay:0.2s">
+        <div class="why-icon">🌐</div>
+        <h3>Seamless Connectivity</h3>
+        <p>Well-coordinated schedules connecting major cities, safari destinations, and coastal getaways across Tanzania and Kenya.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMETABLE -->
+<section class="timetable" id="timetable">
+  <div class="tt-inner">
+    <div class="section-header center fade-up">
+      <span class="section-tag">Flight Schedule</span>
+      <h2 class="section-title">Regular Flight Timetable</h2>
+      <p class="section-sub" style="margin:0 auto;">All times are local. Schedule subject to change — confirm 24hrs before departure.</p>
+    </div>
+    <div style="overflow-x:auto;" class="fade-up">
+      <table class="tt-table">
+        <thead>
+          <tr><th>Route</th><th>From</th><th>To</th><th>Depart</th><th>Arrive</th><th>Freq.</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>DAR → ZNZ</td><td>Dar es Salaam</td><td>Zanzibar</td><td>06:30</td><td>06:50</td><td><span class="tt-badge">Daily</span></td><td><button class="btn-route" style="width:auto;padding:6px 14px;font-size:0.76rem;" onclick="openModalDest('Zanzibar')">Book</button></td></tr>
+          <tr><td>ZNZ → DAR</td><td>Zanzibar</td><td>Dar es Salaam</td><td>07:15</td><td>07:35</td><td><span class="tt-badge">Daily</span></td><td><button class="btn-route" style="width:auto;padding:6px 14px;font-size:0.76rem;" onclick="openModalDest('Dar es Salaam')">Book</button></td></tr>
+          <tr><td>DAR → ARK</td><td>Dar es Salaam</td><td>Arusha</td><td>08:00</td><td>09:10</td><td><span class="tt-badge">Daily</span></td><td><button class="btn-route" style="width:auto;padding:6px 14px;font-size:0.76rem;" onclick="openModalDest('Arusha')">Book</button></td></tr>
+          <tr><td>ZNZ → ARK</td><td>Zanzibar</td><td>Arusha</td><td>09:00</td><td>10:10</td><td><span class="tt-badge">Daily</span></td><td><button class="btn-route" style="width:auto;padding:6px 14px;font-size:0.76rem;" onclick="openModalDest('Arusha')">Book</button></td></tr>
+          <tr><td>DAR → MWZ</td><td>Dar es Salaam</td><td>Mwanza</td><td>10:00</td><td>11:30</td><td><span class="tt-badge">Daily</span></td><td><button class="btn-route" style="width:auto;padding:6px 14px;font-size:0.76rem;" onclick="openModalDest('Mwanza')">Book</button></td></tr>
+          <tr><td>PMA → ZNZ</td><td>Pemba</td><td>Zanzibar</td><td>11:00</td><td>11:30</td><td><span class="tt-badge">Daily</span></td><td><button class="btn-route" style="width:auto;padding:6px 14px;font-size:0.76rem;" onclick="openModalDest('Zanzibar')">Book</button></td></tr>
+          <tr><td>DAR → NBO</td><td>Dar es Salaam</td><td>Nairobi</td><td>13:00</td><td>14:45</td><td><span class="tt-badge">Daily</span></td><td><button class="btn-route" style="width:auto;padding:6px 14px;font-size:0.76rem;" onclick="openModalDest('Nairobi')">Book</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center;color:var(--grey);font-size:0.82rem;margin-top:20px;">Charter flights available on request. Contact us for group bookings & private itineraries.</p>
+  </div>
+</section>
+
+<!-- APP BANNER -->
+<section class="app-banner">
+  <div class="app-inner">
+    <div class="app-content fade-up">
+      <h2>One App.<br>One Experience.</h2>
+      <p>Download our app and enjoy 5% off your next booking! Experience seamless travel with easy bookings, real-time updates, and exclusive deals — all at your fingertips.</p>
+      <div class="app-features">
+        <div class="app-feature">Fast & Secure Check-In</div>
+        <div class="app-feature">Seamless Booking</div>
+        <div class="app-feature">Real-Time Flight Updates</div>
+        <div class="app-feature">Manage Bookings at Your Fingertips</div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://apps.apple.com/us/app/flightlink/id6474679209" target="_blank" style="background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-weight:700;font-size:0.88rem;border:1.5px solid rgba(255,255,255,0.3);transition:all 0.2s;">🍎 App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.dotsyndicate.flightlinkapp" target="_blank" style="background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;padding:12px 22px;border-radius:10px;font-weight:700;font-size:0.88rem;border:1.5px solid rgba(255,255,255,0.3);transition:all 0.2s;">▶ Google Play</a>
+      </div>
+    </div>
+    <div class="app-img fade-up" style="transition-delay:0.15s">
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=85" alt="Flightlink Mobile App">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="fade-up">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">We're Here to Help</h2>
+      <p style="color:var(--grey);margin-bottom:32px;line-height:1.8;">Have questions about our routes, schedules, or charter services? Our team is ready to help you plan your next journey.</p>
+      <div class="contact-item"><div class="contact-icon">📍</div><div><h5>Tanzania HQ</h5><p>3rd Floor, Oyster Pearl Galleria, Chole Road, Masaki, Dar es Salaam</p></div></div>
+      <div class="contact-item"><div class="contact-icon">📍</div><div><h5>Kenya HQ</h5><p>Wilson Business Park, Wilson Airport, Karen, Langata Road, Nairobi</p></div></div>
+      <div class="contact-item"><div class="contact-icon">📞</div><div><h5>Tanzania</h5><p>+255 748 505 610 / 11 / 12</p></div></div>
+      <div class="contact-item"><div class="contact-icon">📞</div><div><h5>Kenya</h5><p>+254 207 903 652 / 53 / 54</p></div></div>
+      <div class="contact-item"><div class="contact-icon">📧</div><div><h5>Reservations</h5><p>centralreservations@flightlink.co.tz</p></div></div>
+      <div class="contact-item"><div class="contact-icon">💬</div><div><h5>WhatsApp Bookings</h5><p>+254 786 781 665</p></div></div>
+    </div>
+    <div class="contact-form fade-up" style="transition-delay:0.15s">
+      <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:22px;">Send Us a Message</h3>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" id="cf-fname" placeholder="John"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" id="cf-lname" placeholder="Doe"></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" id="cf-email" placeholder="john@example.com"></div>
+      <div class="form-group"><label>Subject</label>
+        <select id="cf-subject"><option>Flight Enquiry</option><option>Charter Request</option><option>Group Booking</option><option>General Question</option></select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea id="cf-msg" placeholder="Tell us about your travel plans..."></textarea></div>
+      <button class="btn-primary" style="width:100%" onclick="sendContact()">Send via WhatsApp 💬</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Flight<span>link</span></div>
+      <p class="footer-desc">Domestic, scheduled and affordable flights in Tanzania and Kenya. Connecting people, places and possibilities.</p>
+      <div style="margin-top:20px;display:flex;gap:10px;">
+        <a href="https://www.instagram.com/flightlinktz/" target="_blank" style="width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:1rem;">📷</a>
+        <a href="https://www.facebook.com/flightlinktz" target="_blank" style="width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:1rem;">👤</a>
+        <a href="https://wa.me/254754952212" target="_blank" style="width:36px;height:36px;background:var(--green-wa);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:1rem;">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Destinations</h5>
+      <ul>
+        <li><a href="#routes">Dar es Salaam</a></li>
+        <li><a href="#routes">Zanzibar</a></li>
+        <li><a href="#routes">Arusha</a></li>
+        <li><a href="#routes">Mwanza</a></li>
+        <li><a href="#routes">Pemba</a></li>
+        <li><a href="#routes">Nairobi</a></li>
+        <li><a href="#routes">Kilimanjaro</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#about">Who We Are</a></li>
+        <li><a href="#routes">Our Routes</a></li>
+        <li><a href="#timetable">Timetable</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#">Charter Flights</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Information</h5>
+      <ul>
+        <li><a href="#">Baggage Policy</a></li>
+        <li><a href="#">Dangerous Goods</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Wheelchair Policy</a></li>
+        <li><a href="#">Check-In Info</a></li>
+        <li><a href="#">In-Flight Experience</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Flightlink. All rights reserved.</p>
+    <p>Tanzania | Kenya ✈</p>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/254754952212" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- ══════════════════════════════════════
+     BOOKING MODAL
+══════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h2>✈ Book Your Flight</h2>
+        <p>4 simple steps — flight details, seat selection, passengers & payment</p>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <!-- STEP TABS -->
+    <div class="modal-steps">
+      <div class="modal-step active" id="st-1"><div class="snum">1</div>Flight</div>
+      <div class="modal-step" id="st-2"><div class="snum">2</div>Seats</div>
+      <div class="modal-step" id="st-3"><div class="snum">3</div>Passengers</div>
+      <div class="modal-step" id="st-4"><div class="snum">4</div>Payment</div>
+      <div class="modal-step" id="st-5"><div class="snum">5</div>Receipt</div>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- STEP 1: FLIGHT -->
+      <div class="step-panel active" id="step-1">
+        <div class="modal-row">
+          <div class="modal-field">
+            <label>From</label>
+            <select id="m-from">
+              <option>Dar es Salaam (DAR)</option>
+              <option>Zanzibar (ZNZ)</option>
+              <option>Arusha (ARK)</option>
+              <option>Mwanza (MWZ)</option>
+              <option>Pemba (PMA)</option>
+              <option>Nairobi (NBO)</option>
+            </select>
+          </div>
+          <div class="modal-field">
+            <label>To</label>
+            <select id="m-to" onchange="updatePrice()">
+              <option value="">— Select Destination —</option>
+              <option value="Zanzibar (ZNZ)" data-price="65000">Zanzibar (ZNZ) — TZS 65,000</option>
+              <option value="Dar es Salaam (DAR)" data-price="65000">Dar es Salaam (DAR) — TZS 65,000</option>
+              <option value="Arusha (ARK)" data-price="125000">Arusha (ARK) — TZS 125,000</option>
+              <option value="Mwanza (MWZ)" data-price="175000">Mwanza (MWZ) — TZS 175,000</option>
+              <option value="Pemba (PMA)" data-price="125000">Pemba (PMA) — TZS 125,000</option>
+              <option value="Kilimanjaro (JRO)" data-price="150000">Kilimanjaro (JRO) — TZS 150,000</option>
+              <option value="Nairobi (NBO)" data-price="450000">Nairobi (NBO) — TZS 450,000</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-row">
+          <div class="modal-field">
+            <label>Departure Date</label>
+            <input type="date" id="m-date">
+          </div>
+          <div class="modal-field">
+            <label>Return Date <span style="color:var(--grey);font-weight:400">(optional)</span></label>
+            <input type="date" id="m-return">
+          </div>
+        </div>
+        <div class="modal-row">
+          <div class="modal-field">
+            <label>Passengers</label>
+            <select id="m-pax" onchange="updatePrice()">
+              <option value="1">1 Passenger</option>
+              <option value="2">2 Passengers</option>
+              <option value="3">3 Passengers</option>
+              <option value="4">4 Passengers</option>
+              <option value="5">5 Passengers</option>
+              <option value="6">6 Passengers</option>
+            </select>
+          </div>
+          <div class="modal-field">
+            <label>Trip Type</label>
+            <select id="m-type" onchange="updatePrice()">
+              <option>One Way</option>
+              <option>Round Trip</option>
+              <option>Charter</option>
+            </select>
+          </div>
+        </div>
+        <div style="background:#fff8f8;border:1.5px solid rgba(232,0,13,0.15);border-radius:10px;padding:12px 16px;font-size:0.84rem;color:var(--grey);">
+          💡 Total fare: <strong id="price-display" style="color:var(--red);font-size:1.05rem;">TZS 65,000</strong> — all taxes included.
+        </div>
+      </div>
+
+      <!-- STEP 2: SEATS -->
+      <div class="step-panel" id="step-2">
+        <p style="font-size:0.82rem;color:var(--grey);margin-bottom:16px;">Select <strong id="seats-needed" style="color:var(--red)">1 seat</strong> for your party.</p>
+        <div class="seat-map-wrap">
+          <div class="seat-map-header">
+            <h4>✈ Cabin Seat Map</h4>
+            <div class="seat-legend">
+              <span><span class="leg-box leg-avail"></span> Available</span>
+              <span><span class="leg-box leg-sel"></span> Selected</span>
+              <span><span class="leg-box leg-taken"></span> Taken</span>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div class="plane-nose-wrap"><div class="plane-nose">✈ NOSE</div></div>
+            <div class="seat-cabin" id="seatCabin"></div>
+          </div>
+          <div class="seat-info">Selected: <strong id="selected-seats-display">None</strong></div>
+        </div>
+      </div>
+
+      <!-- STEP 3: PASSENGERS -->
+      <div class="step-panel" id="step-3">
+        <p style="font-size:0.82rem;color:var(--grey);margin-bottom:18px;">Fill in details for each passenger. First passenger is the lead contact.</p>
+        <div class="pax-cards" id="paxCards"></div>
+      </div>
+
+      <!-- STEP 4: PAYMENT -->
+      <div class="step-panel" id="step-4">
+        <p style="font-size:0.82rem;color:var(--grey);margin-bottom:18px;">Choose your preferred payment method.</p>
+        <div class="pay-methods">
+          <div class="pay-method selected" id="pay-mpesa" onclick="selectPay('mpesa')">
+            <div class="pay-icon">📱</div>
+            <div class="pay-name">Airtel Money</div>
+            <div class="pay-desc">Send via Airtel Money Tanzania</div>
+            <div class="pay-num">+254754952212</div>
+          </div>
+          <div class="pay-method" id="pay-whatsapp" onclick="selectPay('whatsapp')">
+            <div class="pay-icon">💬</div>
+            <div class="pay-name">WhatsApp Pay</div>
+            <div class="pay-desc">Send payment screenshot via WhatsApp</div>
+            <div class="pay-num">+254754952212</div>
+          </div>
+          <div class="pay-method" id="pay-bank" onclick="selectPay('bank')">
+            <div class="pay-icon">🏦</div>
+            <div class="pay-name">Bank Transfer</div>
+            <div class="pay-desc">Direct bank transfer — details on booking</div>
+            <div class="pay-num">CRDB / NMB Tanzania</div>
+          </div>
+          <div class="pay-method" id="pay-cash" onclick="selectPay('cash')">
+            <div class="pay-icon">💵</div>
+            <div class="pay-name">Pay at Airport</div>
+            <div class="pay-desc">Cash at check-in counter before flight</div>
+            <div class="pay-num">Check-In Desk</div>
+          </div>
+        </div>
+        <div class="mpesa-box show" id="mpesaBox">
+          <h5>📱 How to Pay via Airtel Money</h5>
+          <div class="mpesa-step"><span class="n">1.</span> Open Airtel Money → Send Money</div>
+          <div class="mpesa-step"><span class="n">2.</span> Enter number: <strong>+254754952212</strong></div>
+          <div class="mpesa-step"><span class="n">3.</span> Enter amount: <strong id="mpesa-amount">TZS 65,000</strong></div>
+          <div class="mpesa-step"><span class="n">4.</span> Reference: Your full name</div>
+          <div class="mpesa-step"><span class="n">5.</span> Send payment screenshot via WhatsApp to confirm</div>
+        </div>
+        <div class="modal-field">
+          <label>Transaction Reference (optional)</label>
+          <input type="text" id="m-txref" placeholder="e.g. QHJ7K9LM or M-Pesa code">
+        </div>
+        <div class="total-box">
+          <span>Total Amount Due:</span>
+          <strong id="total-display">TZS 65,000</strong>
+        </div>
+      </div>
+
+      <!-- STEP 5: RECEIPT -->
+      <div class="step-panel" id="step-5">
+        <div class="success-banner">
+          <span style="font-size:1.4rem;">✅</span>
+          <div><strong>Booking submitted!</strong> Your details have been sent to Flightlink via WhatsApp. Our team will confirm shortly.</div>
+        </div>
+        <div class="receipt-wrap" id="receiptDoc">
+          <div class="receipt-header">
+            <div class="receipt-logo">Flight<span>link</span></div>
+            <div class="receipt-bref">
+              <div class="bnum" id="r-bref">FL-000000</div>
+              <div class="blbl">Booking Reference</div>
+            </div>
+          </div>
+          <div class="receipt-route">
+            <span id="r-from-bar">Dar es Salaam (DAR)</span>
+            <span style="font-size:1.1rem;">✈</span>
+            <span id="r-dest-bar">—</span>
+          </div>
+          <div class="receipt-body">
+            <div class="receipt-grid">
+              <div><div class="rf-label">Departure</div><div class="rf-val" id="r-date">—</div></div>
+              <div><div class="rf-label">Return</div><div class="rf-val" id="r-return">—</div></div>
+              <div><div class="rf-label">Trip Type</div><div class="rf-val" id="r-type">—</div></div>
+              <div><div class="rf-label">Passengers</div><div class="rf-val" id="r-pax">—</div></div>
+              <div><div class="rf-label">Seats</div><div class="rf-val" id="r-seats">—</div></div>
+              <div><div class="rf-label">Issued</div><div class="rf-val" id="r-issued">—</div></div>
+            </div>
+            <div class="receipt-pax">
+              <h5>Passengers</h5>
+              <div id="r-pax-list"></div>
+            </div>
+            <div class="receipt-pay-box">
+              <h5>💳 Payment Details</h5>
+              <div class="receipt-pay-row"><span>Method</span><span id="r-pay-method">—</span></div>
+              <div class="receipt-pay-row"><span>Pay To</span><span>Airtel Money: +254754952212</span></div>
+              <div class="receipt-pay-row"><span>Txn Ref</span><span id="r-txref">Pending</span></div>
+              <div class="receipt-pay-row total"><span><strong>Total</strong></span><span><strong id="r-total">—</strong></span></div>
+            </div>
+            <p style="font-size:0.72rem;color:#888;line-height:1.6;">Present this receipt at check-in. For queries: centralreservations@flightlink.co.tz or WhatsApp +254 786 781 665. Flight times subject to change — confirm 24hrs before departure.</p>
+          </div>
+          <div class="receipt-footer-bar">
+            <div>© 2026 Flightlink — Tanzania & Kenya</div>
+            <div class="rf-status">BOOKING CONFIRMED ✓</div>
+          </div>
+        </div>
+        <div class="receipt-actions">
+          <button class="btn-print" onclick="printReceipt()">🖨️ Print</button>
+          <button class="btn-wa" onclick="resendWA()">💬 Resend WhatsApp</button>
+        </div>
+      </div>
+
+    </div><!-- end modal-body -->
+
+    <div class="modal-footer">
+      <button class="btn-back" id="btn-back" onclick="prevStep()" style="display:none">← Back</button>
+      <button class="btn-next" id="btn-next" onclick="nextStep()">Next →</button>
+      <button class="btn-wa" id="btn-confirm" onclick="generateReceipt()" style="display:none">💬 Confirm & Send WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── STATE ──
+let currentStep = 1;
+let selectedSeats = [];
+let selectedPay = 'mpesa';
+const STEPS = 5;
+const takenSeats = ['2B','3C','5A','6D','8B','9C'];
+const payLabels = {mpesa:'Airtel Money',whatsapp:'WhatsApp Pay',bank:'Bank Transfer',cash:'Pay at Airport'};
+
+// ── HERO SLIDER (subtle background change) ──
+const heroImgs = [
+  'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=85',
+  'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1800&q=85',
+  'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1800&q=85'
+];
+let heroIdx = 0;
+const heroBg = document.querySelector('.hero-bg');
+setInterval(() => {
+  heroIdx = (heroIdx + 1) % heroImgs.length;
+  heroBg.style.backgroundImage = `url('${heroImgs[heroIdx]}')`;
+}, 5000);
+
+// ── SCROLL ANIMATIONS ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.12});
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// ── NAV ──
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+function closeNav()  { document.getElementById('mobileNav').classList.remove('open'); }
+
+// ── SEARCH TABS ──
+document.querySelectorAll('.search-tab').forEach((tab, i) => {
+  tab.onclick = () => {
+    document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  };
+});
+
+// ── PRICE ──
+function getUnitPrice() {
+  const sel = document.getElementById('m-to');
+  const opt = sel.options[sel.selectedIndex];
+  return parseInt(opt.dataset.price || 65000);
+}
+function getTotal() {
+  const n = parseInt(document.getElementById('m-pax').value);
+  const type = document.getElementById('m-type').value;
+  const base = getUnitPrice() * n;
+  return type === 'Round Trip' ? base * 2 : base;
+}
+function fmt(n) { return 'TZS ' + n.toLocaleString(); }
+function updatePrice() {
+  const total = getTotal();
+  const el = document.getElementById('price-display');
+  const td = document.getElementById('total-display');
+  const ma = document.getElementById('mpesa-amount');
+  if (el) el.textContent = fmt(total);
+  if (td) td.textContent = fmt(total);
+  if (ma) ma.textContent = fmt(total);
+}
+
+// ── SEAT MAP ──
+function buildSeats() {
+  const cabin = document.getElementById('seatCabin');
+  cabin.innerHTML = '';
+  for (let r = 1; r <= 12; r++) {
+    const row = document.createElement('div');
+    row.className = 'seat-row';
+    const rn = document.createElement('div');
+    rn.className = 'seat-row-num'; rn.textContent = r;
+    row.appendChild(rn);
+    ['A','B'].forEach(col => {
+      const s = document.createElement('div');
+      const id = r + col;
+      s.className = 'seat' + (takenSeats.includes(id) ? ' taken' : '');
+      s.dataset.seat = id; s.textContent = id;
+      if (!takenSeats.includes(id)) s.onclick = () => toggleSeat(id, s);
+      row.appendChild(s);
+    });
+    const aisle = document.createElement('div');
+    aisle.className = 'seat-aisle'; aisle.textContent = '│';
+    row.appendChild(aisle);
+    ['C','D'].forEach(col => {
+      const s = document.createElement('div');
+      const id = r + col;
+      s.className = 'seat' + (takenSeats.includes(id) ? ' taken' : '');
+      s.dataset.seat = id; s.textContent = id;
+      if (!takenSeats.includes(id)) s.onclick = () => toggleSeat(id, s);
+      row.appendChild(s);
+    });
+    cabin.appendChild(row);
+  }
+  refreshSeats();
+}
+
+function toggleSeat(id, el) {
+  const needed = parseInt(document.getElementById('m-pax').value);
+  if (selectedSeats.includes(id)) {
+    selectedSeats = selectedSeats.filter(s => s !== id);
+    el.classList.remove('selected');
+  } else {
+    if (selectedSeats.length >= needed) {
+      const first = selectedSeats.shift();
+      const fe = document.querySelector('[data-seat="' + first + '"]');
+      if (fe) fe.classList.remove('selected');
+    }
+    selectedSeats.push(id);
+    el.classList.add('selected');
+  }
+  refreshSeats();
+}
+function refreshSeats() {
+  const n = parseInt(document.getElementById('m-pax').value);
+  document.getElementById('seats-needed').textContent = n + ' seat' + (n > 1 ? 's' : '');
+  document.getElementById('selected-seats-display').textContent = selectedSeats.length ? selectedSeats.join(', ') : 'None';
+}
+
+// ── PASSENGER CARDS ──
+function buildPaxCards() {
+  const n = parseInt(document.getElementById('m-pax').value);
+  const c = document.getElementById('paxCards');
+  c.innerHTML = '';
+  for (let i = 0; i < n; i++) {
+    const seat = selectedSeats[i] || '?';
+    c.innerHTML += `
+    <div class="pax-card">
+      <div class="pax-card-title">${i === 0 ? '👤 Lead Passenger' : '👤 Passenger ' + (i+1)} <span class="pax-seat-badge">Seat #${seat}</span></div>
+      <div class="modal-row">
+        <div class="modal-field"><label>First Name</label><input type="text" id="pf-${i}" placeholder="John"></div>
+        <div class="modal-field"><label>Last Name</label><input type="text" id="pl-${i}" placeholder="Doe"></div>
+      </div>
+      <div class="modal-row">
+        <div class="modal-field"><label>Phone / WhatsApp</label><input type="tel" id="pp-${i}" placeholder="+255 700 000 000"></div>
+        <div class="modal-field"><label>Passport / ID Number</label><input type="text" id="px-${i}" placeholder="e.g. A1234567"></div>
+      </div>
+      <div class="modal-field"><label>Email Address</label><input type="email" id="pe-${i}" placeholder="john@example.com"></div>
+      ${i===0?`<div class="modal-field"><label>Special Assistance (optional)</label><input type="text" id="ps-0" placeholder="e.g. wheelchair, dietary needs..."></div>`:''}
+    </div>`;
+  }
+}
+
+// ── PAYMENT ──
+function selectPay(m) {
+  selectedPay = m;
+  ['mpesa','whatsapp','bank','cash'].forEach(x => {
+    document.getElementById('pay-' + x).classList.toggle('selected', x === m);
+  });
+  document.getElementById('mpesaBox').classList.toggle('show', m === 'mpesa');
+}
+
+// ── WHATSAPP LAUNCHER ──
+function openWA(number, message) {
+  const clean = number.replace(/[^0-9]/g,'');
+  const url = 'https://wa.me/' + clean + '?text=' + encodeURIComponent(message);
+  showWAPanel(url, message);
+}
+
+function showWAPanel(url, message) {
+  const old = document.getElementById('waPanelOverlay');
+  if (old) old.remove();
+  const panel = document.createElement('div');
+  panel.id = 'waPanelOverlay';
+  panel.style.cssText = 'position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:20px;';
+  panel.innerHTML = `
+    <div style="background:#fff;border-radius:20px;max-width:480px;width:100%;overflow:hidden;animation:modalIn 0.3s ease;">
+      <div style="background:#075e54;padding:20px 24px;display:flex;align-items:center;gap:12px;">
+        <div style="width:42px;height:42px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">💬</div>
+        <div style="flex:1;">
+          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#fff;">Send Booking via WhatsApp</div>
+          <div style="font-size:0.76rem;color:rgba(255,255,255,0.65);margin-top:2px;">Flightlink Reservations</div>
+        </div>
+        <button onclick="document.getElementById('waPanelOverlay').remove()" style="width:30px;height:30px;background:rgba(255,255,255,0.12);border:none;border-radius:50%;color:#fff;font-size:1rem;cursor:pointer;">✕</button>
+      </div>
+      <div style="padding:16px 20px 0;">
+        <div style="font-size:0.7rem;font-weight:700;color:#25D366;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Message Preview</div>
+        <div style="background:#f0f0f0;border-radius:10px;padding:14px;font-size:0.76rem;color:#333;line-height:1.7;max-height:200px;overflow-y:auto;white-space:pre-wrap;font-family:'DM Sans',sans-serif;">${message.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+      </div>
+      <div style="padding:16px 20px 20px;display:flex;flex-direction:column;gap:10px;">
+        <a href="${url}" target="_blank" rel="noopener" onclick="setTimeout(()=>{const p=document.getElementById('waPanelOverlay');if(p)p.remove();},500)" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;border-radius:10px;padding:13px 20px;font-weight:700;font-size:0.92rem;font-family:'DM Sans',sans-serif;">💬 Open WhatsApp & Send</a>
+        <button id="copyWABtn" onclick="copyWAMsg()" style="background:#f8f8f8;color:#333;border:1.5px solid #e5e5e5;border-radius:10px;padding:11px;font-size:0.84rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">📋 Copy Message</button>
+        <div style="font-size:0.7rem;color:#aaa;text-align:center;">Tap Open WhatsApp to send your booking details directly.</div>
+      </div>
+    </div>`;
+  panel._waMsg = message;
+  document.body.appendChild(panel);
+}
+
+function copyWAMsg() {
+  const panel = document.getElementById('waPanelOverlay');
+  if (!panel) return;
+  const msg = panel._waMsg || '';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(msg).then(() => {
+      const btn = document.getElementById('copyWABtn');
+      if (btn) { btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = '📋 Copy Message', 2500); }
+    });
+  }
+}
+
+// ── GENERATE RECEIPT ──
+function generateReceipt() {
+  const bref = 'FL-' + Date.now().toString().slice(-6);
+  const dest = document.getElementById('m-to').value;
+  const from = document.getElementById('m-from').value;
+  const date = document.getElementById('m-date').value;
+  const ret  = document.getElementById('m-return').value;
+  const type = document.getElementById('m-type').value;
+  const n    = parseInt(document.getElementById('m-pax').value);
+  const txref = document.getElementById('m-txref').value;
+  const total = getTotal();
+
+  const fmtDate = d => {
+    if (!d) return 'TBC';
+    return new Date(d + 'T00:00:00').toLocaleDateString('en-GB', {weekday:'short',day:'2-digit',month:'short',year:'numeric'});
+  };
+
+  // Fill receipt
+  document.getElementById('r-bref').textContent    = bref;
+  document.getElementById('r-from-bar').textContent= from;
+  document.getElementById('r-dest-bar').textContent= dest || '—';
+  document.getElementById('r-date').textContent    = fmtDate(date);
+  document.getElementById('r-return').textContent  = ret ? fmtDate(ret) : 'N/A';
+  document.getElementById('r-type').textContent    = type;
+  document.getElementById('r-pax').textContent     = n + ' passenger' + (n > 1 ? 's' : '');
+  document.getElementById('r-seats').textContent   = selectedSeats.join(', ') || '—';
+  document.getElementById('r-issued').textContent  = new Date().toLocaleString();
+  document.getElementById('r-pay-method').textContent = payLabels[selectedPay] || '—';
+  document.getElementById('r-txref').textContent   = txref || 'Pending';
+  document.getElementById('r-total').textContent   = fmt(total);
+
+  // Pax list
+  const paxEl = document.getElementById('r-pax-list');
+  paxEl.innerHTML = '';
+  for (let i = 0; i < n; i++) {
+    const fn = (document.getElementById('pf-' + i) || {}).value || '—';
+    const ln = (document.getElementById('pl-' + i) || {}).value || '';
+    const seat = selectedSeats[i] || '?';
+    paxEl.innerHTML += `<div class="receipt-pax-item"><span class="pi-name">${fn} ${ln}</span><span class="pi-seat">Seat ${seat}</span></div>`;
+  }
+
+  // Build WA message
+  let paxBlock = '';
+  for (let i = 0; i < n; i++) {
+    const fn   = (document.getElementById('pf-' + i) || {}).value || '—';
+    const ln   = (document.getElementById('pl-' + i) || {}).value || '';
+    const ph   = (document.getElementById('pp-' + i) || {}).value || '';
+    const px   = (document.getElementById('px-' + i) || {}).value || '';
+    const pe   = (document.getElementById('pe-' + i) || {}).value || '';
+    const seat = selectedSeats[i] || '?';
+    paxBlock += `Name: ${fn} ${ln}\nPhone: ${ph}${px ? '\nPassport: ' + px : ''}${pe ? '\nEmail: ' + pe : ''}\nSeat: #${seat}`;
+    if (i < n - 1) paxBlock += '\n\n';
+  }
+  const fn0  = (document.getElementById('pf-0') || {}).value || '';
+  const ln0  = (document.getElementById('pl-0') || {}).value || '';
+  const ph0  = (document.getElementById('pp-0') || {}).value || '';
+  const px0  = (document.getElementById('px-0') || {}).value || '';
+  const em0  = (document.getElementById('pe-0') || {}).value || '';
+  const sp0  = (document.getElementById('ps-0') || {}).value || '';
+
+  const seatFee = 'TZS 0';
+
+  const waMsg =
+`FLIGHTLINK - BOOKING REQUEST
+
+Booking Details
+Trip Type: ${type}
+Route: ${from} to ${dest}
+
+Departure
+Date: ${fmtDate(date)}${ret ? '\nReturn: ' + fmtDate(ret) : ''}
+
+Passenger Details
+Name: ${fn0} ${ln0}
+Phone: ${ph0}${px0 ? '\nPassport: ' + px0 : ''}
+Email: ${em0 || 'N/A'}
+
+Seat Selection
+Seat: #${selectedSeats[0] || '—'}
+Seat Fee: TZS 0
+${n > 1 ? '\nAll Passengers (' + n + ')\n' + paxBlock : ''}
+Fare Summary
+Total Fare: ${fmt(total)}
+
+Payment
+Method: ${payLabels[selectedPay]}
+Pay To: Airtel Money +254754952212${txref ? '\nTransaction Ref: ' + txref : ''}
+${sp0 ? '\nAdditional Information\nSpecial Assistance: ' + sp0 : '\nAdditional Information\nSpecial Assistance: None'}
+
+Please confirm my booking at your earliest convenience. Thank you.`;
+
+  goToStep(5);
+  setTimeout(() => openWA('+254754952212', waMsg), 400);
+}
+
+function resendWA() {
+  const bref  = document.getElementById('r-bref').textContent;
+  const dest  = document.getElementById('r-dest-bar').textContent;
+  const from  = document.getElementById('r-from-bar').textContent;
+  const total = document.getElementById('r-total').textContent;
+  const seats = document.getElementById('r-seats').textContent;
+  const date  = document.getElementById('r-date').textContent;
+  const type  = document.getElementById('r-type').textContent;
+  const paxCount = document.getElementById('r-pax').textContent;
+
+  let paxText = '';
+  document.getElementById('r-pax-list').querySelectorAll('.receipt-pax-item').forEach((item, i) => {
+    const name = item.querySelector('.pi-name').textContent;
+    const seat = item.querySelector('.pi-seat').textContent;
+    paxText += `  PAX ${i+1}: ${name} — ${seat}\n`;
+  });
+
+  const msg =
+`*FLIGHTLINK — BOOKING REQUEST*
+
+*Booking Details*
+Booking Ref: ${bref}
+Trip Type: ${type}
+Route: ${from} to ${dest}
+
+*Departure*
+Date: ${date}
+
+*Passengers (${paxCount})*
+${paxText}
+*Seat Selection*
+Seat: ${seats}
+
+*Fare Summary*
+Total Fare: ${total}
+
+Please confirm my booking at your earliest convenience. Thank you.`;
+  openWA('+254754952212', msg);
+}
+
+function printReceipt() {
+  const content = document.getElementById('receiptDoc').innerHTML;
+  const w = window.open('','_blank');
+  w.document.write(`<!DOCTYPE html><html><head><title>Flightlink Receipt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;padding:20px;font-family:'DM Sans',sans-serif;background:#fff;color:#1a1a1a;}
+  .receipt-header{background:#0D0D0D;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;border-radius:8px 8px 0 0;}
+  .receipt-logo{font-family:'Syne',serif;font-size:1.2rem;font-weight:800;color:#fff;}
+  .receipt-logo span{color:#E8000D;}
+  .bnum{font-size:1rem;font-weight:800;color:#E8000D;font-family:'Syne',sans-serif;}
+  .blbl{font-size:0.68rem;color:rgba(255,255,255,0.5);text-align:right;}
+  .receipt-route{background:#E8000D;padding:12px 24px;display:flex;align-items:center;gap:10px;font-weight:700;color:#fff;font-size:0.9rem;}
+  .receipt-body{padding:20px 24px;}
+  .receipt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+  .rf-label{font-size:0.65rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;}
+  .rf-val{font-size:0.86rem;font-weight:600;}
+  .receipt-pax h5{font-size:0.68rem;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:8px;}
+  .receipt-pax-item{display:flex;justify-content:space-between;padding:8px 12px;background:#f8f8f8;border-radius:7px;margin-bottom:6px;font-size:0.82rem;}
+  .pi-name{font-weight:600;}.pi-seat{background:#E8000D;color:#fff;font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:10px;}
+  .receipt-pay-box{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:14px 16px;margin:16px 0;}
+  .receipt-pay-box h5{font-size:0.68rem;font-weight:700;color:#16a34a;text-transform:uppercase;margin-bottom:8px;}
+  .receipt-pay-row{display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:4px;}
+  .receipt-pay-row.total{font-weight:800;border-top:1px solid #86efac;padding-top:8px;margin-top:4px;}
+  .receipt-footer-bar{border-top:1px solid #e5e5e5;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-size:0.72rem;color:#888;}
+  .rf-status{background:#dcfce7;color:#16a34a;font-weight:700;font-size:0.68rem;padding:4px 12px;border-radius:20px;}
+  @media print{body{padding:0;}}</style></head><body>${content}</body></html>`);
+  w.document.close();
+  setTimeout(() => { w.focus(); w.print(); }, 500);
+}
+
+// ── STEP NAV ──
+function openModal() {
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  selectedSeats = [];
+  goToStep(1);
+}
+function openModalDest(kw) {
+  openModal();
+  setTimeout(() => {
+    const sel = document.getElementById('m-to');
+    const k = kw.toLowerCase();
+    for (let i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value.toLowerCase().includes(k)) { sel.selectedIndex = i; updatePrice(); break; }
+    }
+  }, 80);
+}
+function openModalFromStrip() {
+  openModal();
+  const to  = document.getElementById('qs-to').value;
+  const dt  = document.getElementById('qs-date').value;
+  const pax = document.getElementById('qs-pax').value;
+  setTimeout(() => {
+    if (to) {
+      const sel = document.getElementById('m-to');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value.includes(to.split('(')[0].trim())) { sel.selectedIndex = i; updatePrice(); break; }
+      }
+    }
+    if (dt) document.getElementById('m-date').value = dt;
+    const n = parseInt(pax);
+    if (!isNaN(n)) { document.getElementById('m-pax').value = Math.min(n, 6); updatePrice(); }
+  }, 80);
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+function goToStep(n) {
+  currentStep = n;
+  for (let i = 1; i <= STEPS; i++) {
+    const p = document.getElementById('step-' + i);
+    const t = document.getElementById('st-' + i);
+    if (p) p.classList.toggle('active', i === n);
+    if (t) { t.classList.remove('active','done'); if (i === n) t.classList.add('active'); else if (i < n) t.classList.add('done'); }
+  }
+  document.getElementById('btn-back').style.display    = (n > 1 && n < 5) ? 'inline-flex' : 'none';
+  document.getElementById('btn-next').style.display    = n < 4             ? 'inline-flex' : 'none';
+  document.getElementById('btn-confirm').style.display = n === 4           ? 'inline-flex' : 'none';
+  updatePrice();
+}
+function nextStep() {
+  if (currentStep === 1) {
+    if (!document.getElementById('m-to').value) { alert('Please select a destination.'); return; }
+    if (!document.getElementById('m-date').value) { alert('Please select a departure date.'); return; }
+    buildSeats();
+  }
+  if (currentStep === 2) {
+    const needed = parseInt(document.getElementById('m-pax').value);
+    if (selectedSeats.length < needed) { alert('Please select ' + needed + ' seat(s). You\'ve selected ' + selectedSeats.length + '.'); return; }
+    buildPaxCards();
+  }
+  if (currentStep === 3) {
+    const fn = (document.getElementById('pf-0') || {}).value;
+    const ln = (document.getElementById('pl-0') || {}).value;
+    const ph = (document.getElementById('pp-0') || {}).value;
+    const px = (document.getElementById('px-0') || {}).value;
+    if (!fn || !ln) { alert('Please enter the lead passenger\'s full name.'); return; }
+    if (!ph) { alert('Please enter a contact phone/WhatsApp number.'); return; }
+    if (!px) { alert('Please enter the passport/ID number.'); return; }
+  }
+  if (currentStep < 4) goToStep(currentStep + 1);
+}
+function prevStep() {
+  if (currentStep > 1 && currentStep < 5) goToStep(currentStep - 1);
+}
+
+// ── CONTACT ──
+function sendContact() {
+  const fn  = document.getElementById('cf-fname').value || '';
+  const ln  = document.getElementById('cf-lname').value || '';
+  const em  = document.getElementById('cf-email').value || '';
+  const sub = document.getElementById('cf-subject').value || '';
+  const msg = document.getElementById('cf-msg').value || '';
+  const waMsg = `✉️ *Flightlink Website Enquiry*\n━━━━━━━━━━━━━━\n👤 Name: ${fn} ${ln}\n📧 Email: ${em || 'N/A'}\n📋 Subject: ${sub}\n📝 Message:\n${msg}\n━━━━━━━━━━━━━━\nSent from flightlink website`;
+  openWA('+254754952212', waMsg);
+}
+
+// ── MIN DATE ──
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('m-date').min = today;
+document.getElementById('m-return').min = today;
+if (document.getElementById('qs-date')) document.getElementById('qs-date').min = today;
+</script>
+</body>
+</html>
