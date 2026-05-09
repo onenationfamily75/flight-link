@@ -4,4 +4,4 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /*?*
 
-Sitemap: https://www.flightlink.co.tz/sitemap.xml
+Sitemap: https://www.flightlinkair.com/sitemap.xml
